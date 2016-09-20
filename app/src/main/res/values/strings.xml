@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MarvelAndroid</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="character_alias"><b>Alias: </b>Spider-Man</string>
+    <string name="character_name"><b>Real Name: </b>Peter Parker</string>
+    <string name="character_creator"><b>Creator: </b>Stan Lee</string>
+    <string name="character_bio"><b>Bio: </b>While attending a public exhibition demonstrating the safe handling of nuclear laboratory waste materials, sponsored by the General Techtronics Corporation, the 15-year-old Peter Parker was bitten on the hand by a spider that had been irradiated by a particle accelerator used in the demonstration. Unbeknownst to him, after the spider fell from his hand, it bit a girl, Cindy Moon on the ankle before it died from the radiation. Making his way home afterwards, Peter was almost hit by a car; when Peter jumped out of the way, Peter discovered he had somehow gained incredible strength, agility, and the ability to cling to walls, spider-like traits that he immediately associated with the spider bite. \n\n
+        \tEncountering an ad offering a cash prize for staying in the ring for three minutes with professional wrestler Joseph "Crusher" Hogan, Peter decided this would be a good way to test his powers. Wearing a mask to avoid potential embarrassment in case he lost the match, Peter easily defeated his opponent. TV producer Maxwell Shiffman observed his performance and convinced him to go on television with his \'act.\' Designing a full costume and fabricating a fluid similar to a spider\'s web and wrist-mounted web-shooters, Peter called himself Spider-Man, becoming an immediate sensation. \n\n
+        \tFollowing his first TV appearance, Peter failed to act to stop an escaping thief, claiming that it was not his responsibility to do so. Peter forgot the incident as his fame rose, but days later he returned home at night to find his Uncle Ben had been murdered. Learning the police had the burglar responsible holed up in a warehouse, Peter changed to Spider-Man and easily captured him only to discover he was the same thief he had allowed to escape earlier. Filled with remorse, he realized that when someone has power, he has an obligation to use it responsibly, so he decided to become a superhero.</string>
+</resources>
