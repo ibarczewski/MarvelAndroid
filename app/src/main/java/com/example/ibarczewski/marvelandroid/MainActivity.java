@@ -8,8 +8,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,9 +21,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d("Hello", "I am working now");
         processNetworkingOffMain();
 
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
     }
 
     private void processNetworkingOffMain() {
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         String ts = tsLong.toString();
         String md5 = generateHash(ts);
 
-        final MarvelClient characterService = ServiceGenerator.createService(MarvelClient.class);
+        final MarvelService characterService = ServiceGenerator.createService(MarvelService.class);
         characterService.getHero("spider-man", API_KEY, ts, md5).enqueue(new Callback<HeroResponse>() {
             @Override
             public void onResponse(final Call<HeroResponse> call, final Response<HeroResponse> response) {
