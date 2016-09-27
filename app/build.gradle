@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 24
@@ -6,6 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.ibarczewski.marvelandroid"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         minSdkVersion 19
         targetSdkVersion 24
         versionCode 1
@@ -29,4 +31,34 @@ dependencies {
     compile 'com.android.support:multidex:1.0.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
+
+    apt "com.google.dagger:dagger-compiler:2.6"
+    provided "javax.annotation:jsr250-api:1.0"
+    compile "javax.inject:javax.inject:1"
+    compile "com.google.dagger:dagger:2.6"
+
+    //Unit Testing
+    testApt "com.google.dagger:dagger-compiler:2.6"
+    testCompile "org.robolectric:robolectric:3.1"
+    testCompile "org.robolectric:shadows-support-v4:3.1"
+    testCompile "junit:junit:4.12"
+    testCompile "org.mockito:mockito-all:1.10.19"
+    testCompile 'com.github.fabioCollini:DaggerMock:0.6.2'
+
+    // Espresso UI Testing dependencies.
+    def espressoVersion = '2.2.2'
+    def testRunnerVersion = '0.5'
+
+    androidTestCompile "com.android.support.test:runner:${testRunnerVersion}"
+    androidTestCompile "com.android.support.test:rules:${testRunnerVersion}"
+    androidTestCompile "com.android.support.test.espresso:espresso-core:${espressoVersion}"
+    androidTestCompile "com.android.support.test.espresso:espresso-contrib:${espressoVersion}"
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:${espressoVersion}"
+
+    configurations.androidTestCompile.dependencies.each { androidTestCompileDependency ->
+        androidTestCompileDependency.exclude group: 'com.android.support'
+    }
+
+    androidTestCompile "com.android.support.test.uiautomator:uiautomator-v18:2.1.2"
+    androidTestCompile "junit:junit:4.12"
 }

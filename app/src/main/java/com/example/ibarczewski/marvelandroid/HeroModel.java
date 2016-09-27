@@ -1,17 +1,17 @@
 package com.example.ibarczewski.marvelandroid;
 
 class HeroResponse {
-    String status;
-    int code;
     Data data;
 
     public HeroModel getFirstCharacter() {
-        return data.results[0];
+        return data.getFirstCharacter();
     }
 }
 
 class Data{
     HeroModel[] results;
+
+    public HeroModel getFirstCharacter() { return results[0];}
 }
 
 class HeroModel {
