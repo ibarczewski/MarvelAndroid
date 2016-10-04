@@ -28,4 +28,16 @@ public class ApplicationModule {
     public Context provideApplicationContext() {
         return this.marvelComicsApp.getApplicationContext();
     }
+
+    @Provides
+    @Singleton
+    public MarvelService marvelService() {
+        return ServiceGenerator.createComicsService();
+    }
+
+    @Provides
+    @Singleton
+    public ImageLoader provideImageLoader(@Named("application_context") Context context){
+        return new ImageLoaderImpl(ServiceGenerator.createGlide(context), context);
+    }
 }

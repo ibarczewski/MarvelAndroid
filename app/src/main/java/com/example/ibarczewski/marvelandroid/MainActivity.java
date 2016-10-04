@@ -8,17 +8,25 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import javax.inject.Inject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
+    @Inject
+    MarvelComicsApp marvelService;
+    @Inject ImageLoader imageLoader;
+
     final String API_KEY = "260d86172bed32914e6fa8a18550028e";
     final String PRIVATE_API_KEY = "eb337412b2eaa7300ede0584218d97635c1227d1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MarvelComicsApp application = (MarvelComicsApp) getApplication();
+        application.getApplicationComponent().inject(this);
         setContentView(R.layout.activity_main);
 
         processNetworkingOffMain();
@@ -61,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.alias)).setText(title);
         ((TextView) findViewById(R.id.description)).setText(description);
         final String image = firstCharacter.getImage();
-        Picasso.with(this).load(image).into((ImageView) findViewById(R.id.character_image));
+        imageLoader.loadImageIntoView(image, (ImageView) findViewById(R.id.character_image));
     }
 
     private String generateHash(String ts) {
